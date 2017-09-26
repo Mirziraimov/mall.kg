@@ -1,1 +1,146 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>goods</title>
+</head>
+<style>
+	.wrapper{
+		width:100%;
+		overflow:hidden;
+	}
+	.content{
+		width:80%;
+		overflow:hidden;
+		margin:0 auto;
+		border:1px solid #000;
+		padding: 10px;
+	}
+	img{
+		width:223px;
+	}
+	.good{
+		width:226px;
+		box-sizing: border-box;
+		border:1px solid #E8E8E8;
+		/*overflow:hidden;*/
+		position: relative;
+		z-index:0;
+	}	
+	.title_good{
+		text-align: center;
+	}
+	.price{
+		width:45%;
+		border-right:1px solid #eee;
+		border-top:1px solid #eee;
+		box-sizing: border-box;
+		overflow:hidden;
+		float:left;
+		text-align: center;
+		font-family: verdana;
+		color:red;
+	}
+	.good a{
+		color:#2f2f2f;
+		font-family:verdana;
+		text-decoration: none;
+		
+	}
+	.button_click{
+		width:55%;
+		border-top:1px solid #eee;
+		box-sizing:border-box;
+		overflow:hidden;
+		display: flex;
+		padding:3px;
+	}
+	.to_the_basket{
+		width:90%;
+		padding:6px 8px;
+		background-color: red;
+		text-align: center;
+		border-radius: 4px;
+		color:#fff;
+		cursor:pointer;
+		font-family:arial;
+	}
+	.old_price{
+		text-decoration: line-through;
+		color:#696969;
+	}
+	.old_price, .real_price{
+		width: 100%;
+		display: block;
+		font-size: 13px;
+	}
+	.new{
+		width:209px;
+		height:29px;
+		position: absolute;
+		top:0px;
+		left:-10px;
+		z-index:9!important;
+		background-image: url("images/come_sprite.png");
+		background-repeat: no-repeat;
+		background-position: -230px -70px;
+		color:#fff;
+		text-indent: 30px;
+		padding: 6px;
+	}
+</style>
+<body>
+<div class='wrapper'>
+	<div class="content">
+		<div class="good">
+			<div class="new">Новинка</div>
+			<div class="discount"></div>
+			<img src="images/cross.jpg">
+			<a href="#"><h3 class="title_good">Title</h3></a>
+			<div class="short_desc"></div>
+			<div>
+				<div class="price">
+					<span class="old_price">500 сом</span>
+					<span class="real_price">500 сом</span>
+				</div>
+				<div class="button_click">
+					<div class="to_the_basket">В корзину</div>
+				</div>
+			</div>
+		</div>
+		<div class="good">
+			<div class="new">Новинка</div>
+			<div class="discount"></div>
+			<img src="images/cross.jpg">
+			<a href="#"><h3 class="title_good">Title</h3></a>
+			<div class="short_desc"></div>
+			<div>
+				<div class="price">
+					<span class="old_price">500 сом</span>
+					<span class="real_price">500 сом</span>
+				</div>
+				<div class="button_click">
+					<div class="to_the_basket">В корзину</div>
+				</div>
+			</div>
+		</div>
+		<div class="good">
+			<div class="new">Новинка</div>
+			<div class="discount"></div>
+			<img src="images/cross.jpg">
+			<a href="#"><h3 class="title_good">Title</h3></a>
+			<div class="short_desc"></div>
+			<div>
+				<div class="price">
+					<span class="old_price">500 сом</span>
+					<span class="real_price">500 сом</span>
+				</div>
+				<div class="button_click">
+					<div class="to_the_basket">В корзину</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
