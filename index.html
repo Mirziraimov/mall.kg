@@ -2,149 +2,351 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>goods</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Mall.kg</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script> -->
+	<script type="text/javascript">
+		$(function(){
+			// slideMenu
+			$(".menu li a").on("click", function(e){
+				e.preventDefault();
+				var classList =$(this).attr('class').split(" ");
+				var thisItem = $(this); 
+				thisItem.next(".submenu").slideToggle("fast");
+		    //     $.each( classList, function(index, item){
+		    //         if(item != 'active_cat') {
+		    //         	$(".menu li .submenu").slideUp(300); 
+						
+		    //         	$(".menu li a").removeClass("active_cat");
+		    //         	thisItem.addClass("active_cat");
+		    //         }
+		    //         else{ 
+		    //         	$(".menu li .category").removeClass("active_cat");
+						// $(".menu li .submenu").slideUp(300); 
+		    //         }
+		    //     });
+			});
+			var $definedBlock;
+			$(".reg_modal_view").on("click", function(){
+				$(".registration_block").slideDown(200);
+				$(".bg_opacity").fadeIn(400);
+				$definedBlock = $(".registration_block");
+			});
+			$(".recover_modal_view").on("click", function(){
+				$(".recover_pass_block").slideDown(200);
+				$(".bg_opacity").fadeIn(400);
+				$definedBlock = $(".recover_pass_block");
+			});
+
+			function hideBlock($param1, $param2){
+				$param1.fadeOut("fast");
+				$param2.slideUp("fast");
+			}
+
+			$(".bg_opacity").on("click", function(){
+				hideBlock($(this), $definedBlock);
+			});
+
+			//Slider
+			var width = $('#slider-container').width();
+			var slide = $(".slide").width(width);
+			//dimensions
+			$('.slides>li').width(width);
+			$('.slides').width(width*$('.slides>li').length);
+			//positioning
+			$('.slides').css('left',-width);
+			$('.slides>li:last-child').prependTo('.slides');
+			
+			//move slides forward
+			function nextSlide() {
+			$('.slides').animate({
+			  'margin-left':-width
+			},500, function() {
+			  $('.slides>li:first-child').appendTo('.slides');
+			  $('.slides').css('margin-left', 0);
+			});
+			}			
+			//move slides backwards
+			function prevSlide() {
+			$('.slides').animate({
+			  'margin-left':width
+			},500, function() {
+			  $('.slides>li:last-child').prependTo('.slides');
+			  $('.slides').css('margin-left', 0);
+			});
+			}
+			//controls
+			$('.next').click(function(){
+				clearInterval(timerSlide);
+				nextSlide();
+				timerSlide = setInterval(nextSlide, 7000);
+			});
+			$('.prev').click(function(){
+				clearInterval(timerSlide);
+				prevSlide();
+				timerSlide = setInterval(nextSlide, 7000);
+			});	
+			//autoPlay
+			var timerSlide = setInterval(nextSlide, 7000);
+
+			$(".editional_search").on("click", function(){
+				var parent = $(this).parent();
+				parent.find(".main_input").attr("disabled");
+				parent.find(".search_button").attr("disabled");
+				$(".big_search").slideToggle(300);
+			});
+
+			/*----------------------------------------*/
+			var Label = jQuery(".file_upload");
+			inp     = Label.find("input"),
+			btn     = Label.find("button"),
+			// lbl     = Label.find("div");
+			btn.focus(function(){
+				inp.focus();
+			});
+			inp.focus(function(){
+				Label.addClass("focus");
+			}).blur(function(){
+				Label.removeClass("focus");
+			});
+			// console.log(lbl);
+			btn.add(/*lbl*/).click(function(){
+				inp.click();
+			});
+			btn.focus(function(){
+				Label.addClass("focus");
+			}).blur(function(){
+				Label.removeClass("focus");
+			});
+
+			var file_api = (window.File && window.FileReader && window.FileList && window.Blop) ? true : false;
+
+			inp.change(function(e){
+				// console.log(e.target.value.split( '\\' ).pop());
+		        if(e.target.value.length > 1){
+					jQuery("#gen_file").text(e.target.value.split( '\\' ).pop());
+		        }
+		    }).change();
+		});
+	</script>
 </head>
-<style>
-	.wrapper{
-		width:100%;
-		overflow:hidden;
-	}
-	.content{
-		width:80%;
-		overflow:hidden;
-		margin:0 auto;
-		border:1px solid #000;
-		padding: 10px;
-		display: flex;
-		justify-content: center;
-		flex-flow: row wrap;
-	}
-	img{
-		width:223px;
-	}
-	.good{
-		width:226px;
-		box-sizing: border-box;
-		border:1px solid #E8E8E8;
-		/*overflow:hidden;*/
-		position: relative;
-		z-index:0;
-		margin-right:20px;
-	}	
-	.title_good{
-		text-align: center;
-	}
-	.price{
-		width:45%;
-		border-right:1px solid #eee;
-		border-top:1px solid #eee;
-		box-sizing: border-box;
-		overflow:hidden;
-		float:left;
-		text-align: center;
-		font-family: verdana;
-		color:red;
-	}
-	.good a{
-		color:#2f2f2f;
-		font-family:verdana;
-		text-decoration: none;
-		
-	}
-	.button_click{
-		width:55%;
-		border-top:1px solid #eee;
-		box-sizing:border-box;
-		overflow:hidden;
-		display: flex;
-		padding:3px;
-	}
-	.to_the_basket{
-		width:90%;
-		padding:6px 8px;
-		background-color: red;
-		text-align: center;
-		border-radius: 4px;
-		color:#fff;
-		cursor:pointer;
-		font-family:arial;
-	}
-	.old_price{
-		text-decoration: line-through;
-		color:#696969;
-	}
-	.old_price, .real_price{
-		width: 100%;
-		display: block;
-		font-size: 13px;
-	}
-	.new{
-		width:209px;
-		height:29px;
-		position: absolute;
-		top:0px;
-		left:-10px;
-		z-index:9!important;
-		background-image: url("images/come_sprite.png");
-		background-repeat: no-repeat;
-		background-position: -230px -70px;
-		color:#fff;
-		text-indent: 30px;
-		padding: 6px;
-	}
-</style>
 <body>
-<div class='wrapper'>
-	<div class="content">
-		<div class="good">
-			<!-- <div class="new">Новинка</div> -->
-			<div class="discount"></div>
-			<img src="images/cross.jpg">
-			<a href="#"><h3 class="title_good">Title</h3></a>
-			<div class="short_desc"></div>
-			<div>
-				<div class="price">
-					<!-- <span class="old_price">500 сом</span> -->
-					<span class="real_price">500 сом</span>
+	<div class="wrapper">
+		<div class="bg_opacity"></div>
+		<div class="registration_block">
+			<form metod="POST">
+				<p><label>Имя:</label></label><input type="text" placeholder="Имя"/></p>
+				<p><label>Фамилия:</label></label><input type="text" placeholder="Фамилия"/></p>
+				<p><label>E-mail:</label></label><input type="text" placeholder="E-mail"/></p>
+				<p><label>Пароль</label></label><input type="text" placeholder="логин"/></p>
+				<p><label>Подтвердить пароль:</label></label><input type="text" placeholder="логин"/></p>
+				<p class="logo_brand">
+					<label class="file_upload addImages">
+				        <span class="button_upload">Выбрать</span>
+				        <mark id="gen_file">Лого бренда</mark>
+				        <input type="file" name="doc_file">
+				   	</label>
+				</p>
+				<p><label>Capcha:</label></label><input type="text" placeholder="Capcha"/></p>
+				<input type="submit" name="reg" class="button reg" value="Регистрация"/>
+			</form>
+		</div>
+		<div class="recover_pass_block">
+			<form metod="POST" class="recover_form">
+				<p><input type="text" placeholder="E-mail"/><input type="text" placeholder="Пароль"/></p>
+				<input type="submit" name="recover" class="button reg" value="Отправить"/>
+			</form>
+		</div>
+		<div class="header">
+			<div class="header_content">
+				<div class="header_section_top">
+					<img src="images/logo.png" alt=""/>
+					<div class="log_in">
+						<form method="POST">
+							<input type="text" placeholder="Логин" class="login_field" name="login" />
+							<input type="password" placeholder="Пароль" class="login_field" name="password" />
+							<input type="submit" value="Вход" class="button" name="login">
+							<p class="recover_modal_view"><span>Забыли пароль?</span></p>
+							<p class="reg_modal_view"><span>Регистрация</span></p>
+						</form>
+					</div>
 				</div>
-				<div class="button_click">
-					<div class="to_the_basket">В корзину</div>
+				<div class="header_section_bottom">
+					<div class="header_navigation">
+						<ul class="header_menu">
+							<li><a href="#" class="active">Главная</a></li>
+							<li><a href="#">О нас</a></li>
+							<li><a href="#">FAQs</a></li>
+							<li><a href="#">Контакты</a></li>
+						</ul>
+						<div class="search">
+							<form method="GET" class="search_form">
+								<input type="text" name="search_feald" class="main_input" placeholder="Поиск"/><input type="submit" class="search_button" value="" name="search"/><span class="editional_search"><img src="images/arrows_down.png" alt=""/></span>
+								<div class="big_search">
+									<div class="search_block">
+										<label>Название:</label>
+										<input type="text" class="title_of_the_good" name="title_of_the_good"/>
+									</div>
+									<div class="search_block"s>
+										<label>от:</label>
+										<input type="text" class="first_price" name="from"/>
+										<label>до</label>
+										<input type="text" class="second_price" name="to"/>
+									</div>
+									<div class="search_block">
+										<label>Бренд:</label>
+										<select name="brand" id="brand">
+											<<option value="sela">Sela</option>
+											<<option value="sela">Li_Ning</option>
+											<<option value="sela">lime</option>
+										</select>
+									</div>
+									<div class="search_block">
+										<label>Категория:</label>
+										<select>
+											<optgroup label="Женщины"></optgroup>
+											<option value="">Юбки</option>
+											<optgroup label="Мужчины"></optgroup>
+											<option value="">Штаны</option>
+										</select>
+									</div>
+									<input type="submit" name="big_submit" class="submit_search" value="Поиск"/>
+								</div>
+							</form>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
-		<div class="good">
-			<div class="new">Новинка</div>
-			<div class="discount"></div>
-			<img src="images/cross.jpg">
-			<a href="#"><h3 class="title_good">Title</h3></a>
-			<div class="short_desc"></div>
-			<div>
-				<div class="price">
-					<span class="old_price">500 сом</span>
-					<span class="real_price">500 сом</span>
+		<div class="content">
+			<div class="container">
+				<div class="leftside">
+					<div class="left_menu">
+						<span class="caption_menu">Категории</span>
+						<ul class="menu">
+							<li>
+								<a class="category" href=""><img src="images/women-Shoes.png" class="menu_img" alt=""/>Женщины <img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/accesuar_women.png" class="menu_img" alt=""/>Аксессуары</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt=""/>Обувь</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt=""/>Рубашки блузки</a></li>
+									<li><a href="#"><img src="images/jeans-pents.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Верхняя одежды</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Нижнее белье</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Джемперы и кардиганы</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Сумки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Платья и сарафаны</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="category" href=""><img src="images/men-Shoe.png" class="menu_img" alt="">Мужчины<img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Аксессуары</a></li>
+									<li><a href="#"><img src="images/man_shoes.png" class="menu_img" alt="">Обувь</a></li>
+									<li><a href="#"><img src="images/shirt.png" class="menu_img" alt="">Рубашки</a></li>
+									<li><a href="#"><img src="images/jeans-pents.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/jacket.png" class="menu_img" alt="">Куртки</a></li>
+									<li><a href="#"><img src="images/t-shir.png" class="menu_img" alt="">Футболки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Пиджаки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Сумки</a></li>
+									<li><a href="#"><img src="images/shorts.png" class="menu_img" alt="">Шорты</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="category" href=""><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Дети<img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Аксессуары</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Обувь</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Кофты</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Куртки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Рубашки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Футболки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Пиджаки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Шорты</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="button_click">
-					<div class="to_the_basket">В корзину</div>
+				<div class="rightside">
+					<div class="slider">
+						<div id="slider-container">  
+							<ul class="slides">
+								<li class="slide"><img class="slider_img" src="images/5932269a1cdcf.jpeg" alt=""/></li>
+								<li class="slide"><img class="slider_img" src="images/5932582bb274e.jpeg" alt=""/></li>
+								<li class="slide"><img class="slider_img" src="images/590ee8ad6d024.png" alt=""/></li>
+							</ul>
+							<ul class="buttons">
+								<li class="prev">&#8249;</li>
+								<li class="next">&#8250;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="breadcrumbs"></div><div class="cart">Корзина</div>
+					<div class="right_container">
+						<div class="good">
+							<!-- <div class="new">Новинка</div> -->
+							<div class="discount"></div>
+							<img src="uploads/cross.jpg">
+							<a href="#"><h3 class="title_good">Title</h3></a>
+							<a href="#"><h3 class="brand_title">Brand title</h3></a>
+							<div class="short_desc"></div>
+							<div>
+								<div class="price">
+									<!-- <span class="old_price">500 сом</span> -->
+									<span class="real_price">500 сом</span>
+								</div>
+								<div class="button_click">
+									<div class="to_the_basket">В корзину</div>
+								</div>
+							</div>
+						</div>
+						<div class="good">
+							<div class="new">Новинка</div>
+							<div class="discount"></div>
+							<img src="uploads/cross.jpg">
+							<a href="#"><h3 class="title_good">Title</h3></a>
+							<a href="#"><h3 class="brand_title">Brand title</h3></a>
+							<div class="short_desc"></div>
+							<div>
+								<div class="price">
+									<span class="old_price">500 сом</span>
+									<span class="real_price">500 сом</span>
+								</div>
+								<div class="button_click">
+									<div class="to_the_basket">В корзину</div>
+								</div>
+							</div>
+						</div>
+						<div class="good">
+							<div class="new">Новинка</div>
+							<div class="discount"></div>
+							<img src="uploads/cross2-mini.png">
+							<a href="#"><h3 class="title_good">Title</h3></a>
+							<a href="#"><h3 class="brand_title">Brand title</h3></a>
+							<div class="short_desc"></div>
+							<div>
+								<div class="price">
+									<span class="old_price">500 сом</span>
+									<span class="real_price">500 сом</span>
+								</div>
+								<div class="button_click">
+									<div class="to_the_basket">В корзину</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+			
 		</div>
-		<div class="good">
-			<div class="new">Новинка</div>
-			<div class="discount"></div>
-			<img src="images/cross.jpg">
-			<a href="#"><h3 class="title_good">Title</h3></a>
-			<div class="short_desc"></div>
-			<div>
-				<div class="price">
-					<span class="old_price">500 сом</span>
-					<span class="real_price">500 сом</span>
-				</div>
-				<div class="button_click">
-					<div class="to_the_basket">В корзину</div>
-				</div>
-			</div>
+		<div class="footer">
+			
 		</div>
 	</div>
-</div>
 </body>
 </html>
