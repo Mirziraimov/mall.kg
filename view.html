@@ -129,6 +129,37 @@
 					jQuery("#gen_file").text(e.target.value.split( '\\' ).pop());
 		        }
 		    }).change();
+
+		    /*------------------------------------------------------------------------------*/
+		    var i = 1;
+			$("#plus").click(function(){
+				i++;
+				var count = $("#count").val(i);
+			});
+			$("#minus").click(function(){
+				if($("#count").val() <= 1){
+					$("#count").val(1);
+				}
+				else{
+					i--;
+					$("#count").val(i);
+				}
+			});
+			/*-----------------------------------------------------------------------------*/
+			$('.tabs-menu a').click(function(e) {
+				e.preventDefault();
+				$('.tabs-menu .active-tab').removeClass('active-tab');
+				$(this).addClass('active-tab');
+				var tab = $(this).attr('href');
+				$('.tab').not(tab).css({'display':'none'});
+				$(tab).fadeIn(400);
+			});
+			/*-----------------------------------------------------------------------------*/
+			$("#small a").click(function(eventObject){
+				$("#big img").hide().attr("src", $(this).attr("href"));
+				$("#big img").fadeIn(1000);
+				eventObject.preventDefault();
+			});
 		});
 	</script>
 </head>
@@ -292,20 +323,49 @@
 					<div class="right_container">
 						<div class="view_product">
 							<div class="gallery">
-								<img src="uploads/limeshoes.jpg" alt="" width="450" height="450"/>
+								<div id="big"><img src="uploads/limeshoes.jpg" alt="" width="450" height="450"/></div>
+								<div id="small"><a href="http://project/images/no-image.jpg"><img src="http://project/images/no-image.jpg" alt="Миниатюра 1" /></a></div>
 							</div>
+							<!-- <div id="gallery">
+								<div id="big"><img src="uploads/limeshoes.jpg" alt="" width="450" height="450"/></div>
+								<div id="small">
+									<a href="http://project/images/no-image.jpg"><img src="http://project/images/no-image.jpg" alt="Миниатюра 1" /></a>
+								</div>
+							</div> -->
 							<div class='description_product'>
-								<h3>Title</h3>
-								<div class="shop">
+								<h3 class="title_product">Title</h3>
+								<div class="shop ">
 									<h4 class="shopt_title">shop title</h4>
 									<img class="logo_img" src="" alt=""/>
 								</div>
-								<div class="features_product">
-									<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga dolorem consequuntur quas nostrum magni eveniet harum nulla sint itaque alias minima asperiores, dicta, animi voluptatem. Distinctio molestias eveniet ipsum obcaecati a nihil necessitatibus modi odit magnam voluptate, unde, voluptatem, qui. Delectus quo molestiae eius. Commodi culpa enim nulla molestias reprehenderit!</p>
-									<div class="choode_size">Размеры</div>
-									<div class="buttons_to_buy">
-										<a href="#">Купить сейчас</a>
-										<a href="#">В корзину</a>
+								<div class="sizes view_interval">
+									Размер:
+									<label class="label-of-size">43<input class="size-of-goods" type="checkbox" name="size[]" value="<?=$value['size_for_good'];?>"/><?=$value['size_for_good']?></label>
+								</div>
+								<div class="make_count view_interval">
+									Количество: <button class="minus-plus" id="minus">-</button><input type="text" name="count" id="count" value="1"/><button id="plus" class="minus-plus">+</button>
+								</div>
+								<div id="buttons " class="view_interval">
+									<button id="buy-now" nid="<?=$content['goods_id']?>" nbrand_id="<?=$content['brand_id']?>">Купить сейчас</button>
+									<button id="to-cart" cid="<?=$content['goods_id']?>" cbrand_id="<?=$content['brand_id']?>">В корзину</button>
+								</div>
+								<div class="return_product view_interval">
+									<span class="return_desc">Возврат товара:</span> Если товар не соответсвует описанию товара, вы можете вернуть товар, оплатив доставку курьеру
+								</div>
+								<div class="tabs_box">
+									<ul class="tabs-menu">
+										<li><a class="active-tab" href="#tab-1">Характеристики товара</a></li>
+										<li><a href="#tab-2">Отзывы</a></li>
+									</ul>
+									<div class="tab" id="tab-1">
+										<div class="first-child">
+											
+										</div>
+									</div>
+									<div class="tab" id="tab-2">
+										<div class="first-child">
+											
+										</div>
 									</div>
 								</div>
 							</div>
