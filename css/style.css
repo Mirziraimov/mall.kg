@@ -89,14 +89,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .addImages .button_upload{height:26px;font-family: Pompadur;cursor:pointer;float: right;box-sizing: border-box;-moz-box-sizing: border-box;width: 8em;text-align: center;color:#fff;background-color: #767676;border:0;border-radius: 6px;}
 .addImages > mark{background: transparent;padding-left: 1em;color:#999;font-family: Pompadur;}
 .logo_brand{width:80%;display: block;margin:0 auto;}
+.b-c{width:100%;overflow:hidden;margin-bottom: 6px;background-color: #333333;}
+.cart{display: inline-block;float:right;border:1px solid red;padding: 6px;font-family: Pompadur;color:#fff;background-color: red;}
+.view_product{width:100%;margin:0 auto;overflow: hidden;}
+.gallery{float:left;display: inline-block;margin-right: 10px;margin-bottom: 10px;}
+.description_product{margin-left:450px;}
+.features_product{width:100%;}
+
 @media screen and (max-width:500px){
+	.log_in form{display: flex;flex-flow: row wrap; justify-content: center;}
 	.header_content{width:100%;}
-	.search{position: static;overflow: hidden;}
+	.search{width:95%;position: static;height:40px;/*overflow: hidden;*//*margin-right: 0;margin-left: auto;*/}
 	.container{width:100%;}
 	.leftside{width:100%;float:none;}
 	.rightside{width:100%;margin:0;}
 	.right_container{width:100%;}
 	#slider-container{height:auto;}
+	.recover_modal_view, .reg_modal_view{width:100%;text-align: center;}
+	.login_field{margin-right: 3px;margin-bottom: 3px;}
+	.recover_pass_block{left: 58%;}
 	/*.slide{width:100%;}
 	.slider_img{width:100%;}*/
 }
