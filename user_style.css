@@ -14,4 +14,5 @@ input[name="user_search"]{width:200px;font-family:Pompadur;float: left;padding: 
 .upload_avatar{position:relative; display: block;}
 .drag_block{display:none;position: absolute;left:0;width:300px;height:300px;background-color:#E1E1E1;}
 .triangle{top:-10px;left:14px;z-index:9;position:absolute;width:0;height:0;border-bottom:10px solid #E1E1E1;border-left:5px solid transparent;border-right:5px solid transparent;}
-.drag_area{z-index:0;height:200px;width:200px;border:2px dashed #323232;margin:50px;auto;}
+.drag_area{z-index:0;height:200px;width:200px;border:2px dashed #323232;margin:50px auto;}
+.login-name{vertical-align: middle;}
