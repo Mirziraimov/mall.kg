@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Mall.kg</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script> -->
+	<script type="text/javascript">
+		$(function(){
+			// slideMenu
+			$(".menu li a").on("click", function(e){
+				e.preventDefault();
+				var classList =$(this).attr('class').split(" ");
+				var thisItem = $(this); 
+				thisItem.next(".submenu").slideToggle("fast");
+		    //     $.each( classList, function(index, item){
+		    //         if(item != 'active_cat') {
+		    //         	$(".menu li .submenu").slideUp(300); 
+						
+		    //         	$(".menu li a").removeClass("active_cat");
+		    //         	thisItem.addClass("active_cat");
+		    //         }
+		    //         else{ 
+		    //         	$(".menu li .category").removeClass("active_cat");
+						// $(".menu li .submenu").slideUp(300); 
+		    //         }
+		    //     });
+			});
+			var $definedBlock;
+			$(".reg_modal_view").on("click", function(){
+				$(".registration_block").slideDown(200);
+				$(".bg_opacity").fadeIn(400);
+				$definedBlock = $(".registration_block");
+			});
+			$(".recover_modal_view").on("click", function(){
+				$(".recover_pass_block").slideDown(200);
+				$(".bg_opacity").fadeIn(400);
+				$definedBlock = $(".recover_pass_block");
+			});
+
+			function hideBlock($param1, $param2){
+				$param1.fadeOut("fast");
+				$param2.slideUp("fast");
+			}
+
+			$(".bg_opacity").on("click", function(){
+				hideBlock($(this), $definedBlock);
+			});
+
+			//Slider
+			var width = $('#slider-container').width();
+			var slide = $(".slide").width(width);
+			//dimensions
+			$('.slides>li').width(width);
+			$('.slides').width(width*$('.slides>li').length);
+			//positioning
+			$('.slides').css('left',-width);
+			$('.slides>li:last-child').prependTo('.slides');
+			
+			//move slides forward
+			function nextSlide() {
+			$('.slides').animate({
+			  'margin-left':-width
+			},500, function() {
+			  $('.slides>li:first-child').appendTo('.slides');
+			  $('.slides').css('margin-left', 0);
+			});
+			}			
+			//move slides backwards
+			function prevSlide() {
+			$('.slides').animate({
+			  'margin-left':width
+			},500, function() {
+			  $('.slides>li:last-child').prependTo('.slides');
+			  $('.slides').css('margin-left', 0);
+			});
+			}
+			//controls
+			$('.next').click(function(){
+				clearInterval(timerSlide);
+				nextSlide();
+				timerSlide = setInterval(nextSlide, 7000);
+			});
+			$('.prev').click(function(){
+				clearInterval(timerSlide);
+				prevSlide();
+				timerSlide = setInterval(nextSlide, 7000);
+			});	
+			//autoPlay
+			var timerSlide = setInterval(nextSlide, 7000);
+
+			$(".editional_search").on("click", function(){
+				var parent = $(this).parent();
+				parent.find(".main_input").attr("disabled");
+				parent.find(".search_button").attr("disabled");
+				$(".big_search").slideToggle(300);
+			});
+
+			/*----------------------------------------*/
+			var Label = jQuery(".file_upload");
+			inp     = Label.find("input"),
+			btn     = Label.find("button"),
+			// lbl     = Label.find("div");
+			btn.focus(function(){
+				inp.focus();
+			});
+			inp.focus(function(){
+				Label.addClass("focus");
+			}).blur(function(){
+				Label.removeClass("focus");
+			});
+			// console.log(lbl);
+			btn.add(/*lbl*/).click(function(){
+				inp.click();
+			});
+			btn.focus(function(){
+				Label.addClass("focus");
+			}).blur(function(){
+				Label.removeClass("focus");
+			});
+
+			var file_api = (window.File && window.FileReader && window.FileList && window.Blop) ? true : false;
+
+			inp.change(function(e){
+				// console.log(e.target.value.split( '\\' ).pop());
+		        if(e.target.value.length > 1){
+					jQuery("#gen_file").text(e.target.value.split( '\\' ).pop());
+		        }
+		    }).change();
+
+		    /*------------------------------------------------------------------------------*/
+		    var i = 1;
+			$("#plus").click(function(){
+				i++;
+				var count = $("#count").val(i);
+			});
+			$("#minus").click(function(){
+				if($("#count").val() <= 1){
+					$("#count").val(1);
+				}
+				else{
+					i--;
+					$("#count").val(i);
+				}
+			});
+			/*-----------------------------------------------------------------------------*/
+			$('.tabs-menu a').click(function(e) {
+				e.preventDefault();
+				$('.tabs-menu .active-tab').removeClass('active-tab');
+				$(this).addClass('active-tab');
+				var tab = $(this).attr('href');
+				$('.tab').not(tab).css({'display':'none'});
+				$(tab).fadeIn(400);
+			});
+			/*-----------------------------------------------------------------------------*/
+			$("#small a").click(function(eventObject){
+				$("#big img").hide().attr("src", $(this).attr("href"));
+				$("#big img").fadeIn(1000);
+				eventObject.preventDefault();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="bg_opacity"></div>
+		<div class="registration_block">
+			<form metod="POST">
+				<p><label>Имя:</label></label><input type="text" placeholder="Имя"/></p>
+				<p><label>Фамилия:</label></label><input type="text" placeholder="Фамилия"/></p>
+				<p><label>E-mail:</label></label><input type="text" placeholder="E-mail"/></p>
+				<p><label>Пароль</label></label><input type="text" placeholder="логин"/></p>
+				<p><label>Подтвердить пароль:</label></label><input type="text" placeholder="логин"/></p>
+				<p class="logo_brand">
+					<label class="file_upload addImages">
+				        <span class="button_upload">Выбрать</span>
+				        <mark id="gen_file">Лого бренда</mark>
+				        <input type="file" name="doc_file">
+				   	</label>
+				</p>
+				<p><label>Capcha:</label></label><input type="text" placeholder="Capcha"/></p>
+				<input type="submit" name="reg" class="button reg" value="Регистрация"/>
+			</form>
+		</div>
+		<div class="recover_pass_block">
+			<form metod="POST" class="recover_form">
+				<p><input type="text" placeholder="E-mail"/><input type="text" placeholder="Пароль"/></p>
+				<input type="submit" name="recover" class="button reg" value="Отправить"/>
+			</form>
+		</div>
+		<div class="header">
+			<div class="header_content">
+				<div class="header_section_top">
+					<img src="images/logo.png" alt=""/>
+					<div class="log_in">
+						<form method="POST">
+							<input type="text" placeholder="Логин" class="login_field" name="login" />
+							<input type="password" placeholder="Пароль" class="login_field" name="password" />
+							<input type="submit" value="Вход" class="button" name="login">
+							<p class="recover_modal_view"><span>Забыли пароль?</span></p>
+							<p class="reg_modal_view"><span>Регистрация</span></p>
+						</form>
+					</div>
+				</div>
+				<div class="header_section_bottom">
+					<div class="header_navigation">
+						<ul class="header_menu">
+							<li><a href="#" class="active">Главная</a></li>
+							<li><a href="#">О нас</a></li>
+							<li><a href="#">FAQs</a></li>
+							<li><a href="#">Контакты</a></li>
+						</ul>
+						<div class="search">
+							<form method="GET" class="search_form">
+								<input type="text" name="search_feald" class="main_input" placeholder="Поиск"/><input type="submit" class="search_button" value="" name="search"/><span class="editional_search"><img src="images/arrows_down.png" alt=""/></span>
+								<div class="big_search">
+									<div class="search_block">
+										<label>Название:</label>
+										<input type="text" class="title_of_the_good" name="title_of_the_good"/>
+									</div>
+									<div class="search_block"s>
+										<label>от:</label>
+										<input type="text" class="first_price" name="from"/>
+										<label>до</label>
+										<input type="text" class="second_price" name="to"/>
+									</div>
+									<div class="search_block">
+										<label>Бренд:</label>
+										<select name="brand" id="brand">
+											<<option value="sela">Sela</option>
+											<<option value="sela">Li_Ning</option>
+											<<option value="sela">lime</option>
+										</select>
+									</div>
+									<div class="search_block">
+										<label>Категория:</label>
+										<select>
+											<optgroup label="Женщины"></optgroup>
+											<option value="">Юбки</option>
+											<optgroup label="Мужчины"></optgroup>
+											<option value="">Штаны</option>
+										</select>
+									</div>
+									<input type="submit" name="big_submit" class="submit_search" value="Поиск"/>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				<div class="leftside">
+					<div class="left_menu">
+						<span class="caption_menu">Категории</span>
+						<ul class="menu">
+							<li>
+								<a class="category" href=""><img src="images/women-Shoes.png" class="menu_img" alt=""/>Женщины <img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/accesuar_women.png" class="menu_img" alt=""/>Аксессуары</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt=""/>Обувь</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt=""/>Рубашки блузки</a></li>
+									<li><a href="#"><img src="images/jeans-pents.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Верхняя одежды</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Нижнее белье</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Джемперы и кардиганы</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Сумки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Платья и сарафаны</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="category" href=""><img src="images/men-Shoe.png" class="menu_img" alt="">Мужчины<img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Аксессуары</a></li>
+									<li><a href="#"><img src="images/man_shoes.png" class="menu_img" alt="">Обувь</a></li>
+									<li><a href="#"><img src="images/shirt.png" class="menu_img" alt="">Рубашки</a></li>
+									<li><a href="#"><img src="images/jeans-pents.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/jacket.png" class="menu_img" alt="">Куртки</a></li>
+									<li><a href="#"><img src="images/t-shir.png" class="menu_img" alt="">Футболки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Пиджаки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Сумки</a></li>
+									<li><a href="#"><img src="images/shorts.png" class="menu_img" alt="">Шорты</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="category" href=""><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Дети<img src='images/arrows_down.png' class="main_menu_img" alt=""/></a>
+								<ul class="submenu">
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Аксессуары</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Обувь</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Кофты</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Джинсы и брюки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Куртки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Рубашки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Футболки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Пиджаки</a></li>
+									<li><a href="#"><img src="images/Nike-Dunk-7.png" class="menu_img" alt="">Шорты</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="rightside">
+					<div class="slider">
+						<div id="slider-container">  
+							<ul class="slides">
+								<li class="slide"><img class="slider_img" src="images/5932269a1cdcf.jpeg" alt=""/></li>
+								<li class="slide"><img class="slider_img" src="images/5932582bb274e.jpeg" alt=""/></li>
+								<li class="slide"><img class="slider_img" src="images/590ee8ad6d024.png" alt=""/></li>
+							</ul>
+							<ul class="buttons">
+								<li class="prev">&#8249;</li>
+								<li class="next">&#8250;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="b-c">
+						<div class="breadcrumbs"></div><div class="cart">Корзина</div>
+					</div>
+					<div class="right_container">
+						<div class="view_product">
+							<div class="gallery">
+								<div id="big"><img src="uploads/limeshoes.jpg" alt="" width="450" height="450"/></div>
+								<div id="small"><a href="http://project/images/no-image.jpg"><img src="http://project/images/no-image.jpg" alt="Миниатюра 1" /></a></div>
+							</div>
+							<!-- <div id="gallery">
+								<div id="big"><img src="uploads/limeshoes.jpg" alt="" width="450" height="450"/></div>
+								<div id="small">
+									<a href="http://project/images/no-image.jpg"><img src="http://project/images/no-image.jpg" alt="Миниатюра 1" /></a>
+								</div>
+							</div> -->
+							<div class='description_product'>
+								<h3 class="title_product">Title</h3>
+								<div class="shop ">
+									<h4 class="shopt_title">shop title</h4>
+									<img class="logo_img" src="" alt=""/>
+								</div>
+								<div class="sizes view_interval">
+									Размер:
+									<label class="label-of-size">43<input class="size-of-goods" type="checkbox" name="size[]" value="<?=$value['size_for_good'];?>"/><?=$value['size_for_good']?></label>
+								</div>
+								<div class="make_count view_interval">
+									Количество: <button class="minus-plus" id="minus">-</button><input type="text" name="count" id="count" value="1"/><button id="plus" class="minus-plus">+</button>
+								</div>
+								<div id="buttons " class="view_interval">
+									<button id="buy-now" nid="<?=$content['goods_id']?>" nbrand_id="<?=$content['brand_id']?>">Купить сейчас</button>
+									<button id="to-cart" cid="<?=$content['goods_id']?>" cbrand_id="<?=$content['brand_id']?>">В корзину</button>
+								</div>
+								<div class="return_product view_interval">
+									<span class="return_desc">Возврат товара:</span> Если товар не соответсвует описанию товара, вы можете вернуть товар, оплатив доставку курьеру
+								</div>
+								<div class="tabs_box">
+									<ul class="tabs-menu">
+										<li><a class="active-tab" href="#tab-1">Характеристики товара</a></li>
+										<li><a href="#tab-2">Отзывы</a></li>
+									</ul>
+									<div class="tab" id="tab-1">
+										<div class="first-child">
+											
+										</div>
+									</div>
+									<div class="tab" id="tab-2">
+										<div class="first-child">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="footer">
+			
+		</div>
+	</div>
+</body>
+</html>

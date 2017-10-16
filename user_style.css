@@ -8,3 +8,6 @@ html, body{height: 100%;background-color: #580204;}
 .menu{width:50px;height:inherit;}
 .list_menu{list-style: none;}
 .list_menu a{text-decoration: none;color:#fff;}
+input[name="panel-search"]{background-image: url(images/search.png);outline:0;cursor:pointer;height: 36px;border: 0;background-color: #767676;border-top-right-radius: 6px;border-bottom-right-radius: 6px;background-repeat: no-repeat;background-position: center;width: 25px;}
+input[name="user_search"]{width:200px;font-family:Pompadur;float: left;padding: 6px 0 6px 5px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;border: 1px solid #767676;outline: 0;height: 22px;background: #1B1B1B;color: #fff;}
+.header-section{display: inline-block;float:left;}
