@@ -4,6 +4,16 @@
 	<meta charset="UTF-8">
 	<title>user panel</title>
 	<link rel="stylesheet" href="user_style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".avatar").on("click", function(e){
+				e.preventDefault();
+				$(".drag_block").slideToggle();
+			});
+		});
+	</script>
 </head>
 <body>
 	<div class="wrapper">
@@ -16,16 +26,16 @@
 				<div class="header-section upload_avatar">
 					<a href="#" class="avatar">
 						<img src="images/profle.png" alt="" />
-						
+					</a>
 						<div class="drag_block">
 							<i class="triangle"></i>
 							<div class="drag_area">
 								<form action="" method="POST" >
-									<input type="file" />
+									<input type="file" id="ava" class="upload_ava"/><label for="ava">Аватар</label>
 								</form>
 							</div>
 						</div>
-					</a>
+					
 				</div>
 				<div class="header-section">
 					<span class="login-name">Ilgiz</span>
@@ -38,19 +48,49 @@
 				</div>
 				
 			</div>
-			<div class="leftside">
+			<div class="rightside">
 				<div class="menu">
 					<ul class="list_menu">
-						<li><a href="#">Главная</a></li>
-						<li><a href="#">Корзина</a></li>
-						<li><a href="#">Отзывы</a></li>
-						<li><a href="#">Товары</a></li>
-						<li><a href="#">Статистика</a></li>
-						<li><a href="#">Настройка</a></li>
+						<li>
+							<a href="#">
+								<img src="icon/home.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Главная -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/cart.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Корзина -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/comment.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Отзывы -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/t-sh.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Товары -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/diagramma.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Статистика -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/editdata.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Настройка -->
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="rightside"></div>
+			<div class="leftside"></div>
 		</div>
 		<div class="footer"></div>
 	</div>

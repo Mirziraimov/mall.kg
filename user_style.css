@@ -1,18 +1,21 @@
 *{padding:0;margin:0;outline:0;}
+@font-face {font-family: Pompadur;src: url(fonts/10403.ttf);}
 html, body{height: 100%;background-color: #580204;}
 .wrapper{display: flex;flex-direction: column;height: 100%;width:100%;}
-.header{width:100%;height:50px;}
+.header{width:100%;height:50px;background-color:#23BBC9;box-sizing: border-box;}
 .content {flex: 1 0 auto;height:100%;width:75%;margin:0 auto;box-shadow: 0px 0px 6px 0px #000000;background-color: #fff;overflow: hidden;}
 .footer {flex: 0 0 auto;}
-.leftside{width:55px;height:100%;display: flex;flex-direction:column;color:#2f2f2f;font-size:10px;font-family:arial;box-sizing: border-box;}
+.rightside{width:55px;height:100%;display: flex;flex-direction:column;flex-flow:row wrap;align-items: center;justify-content:center;box-shadow: 16px 5px 37px -19px #808080;color:#e1e1e1;font-size:10px;font-family:arial;box-sizing: border-box;background-color:#ECECEC;}
 .menu{width:50px;height:inherit;}
 .list_menu{list-style: none;}
+.list_menu li{border:1px solid #C9C9C9;margin-top:6px;display: flex;justify-content: center;padding:15px;border-radius:24px;box-sizing: border-box;}
 .list_menu a{text-decoration: none;color:#2f2f2f;}
 input[name="panel-search"]{background-image: url(images/search.png);outline:0;cursor:pointer;height: 36px;border: 0;background-color: #e1e1e1;border-top-right-radius: 6px;border-bottom-right-radius: 6px;background-repeat: no-repeat;background-position: center;width: 25px;}
 input[name="user_search"]{width:200px;font-family:Pompadur;float: left;padding: 6px 0 6px 5px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;border: 1px solid #767676;outline: 0;height: 22px;background: #1B1B1B;color: #fff;}
 .header-section{display: inline-block;float:left;margin-right:45px;}
 .upload_avatar{position:relative; display: block;}
-.drag_block{display:none;position: absolute;left:0;width:300px;height:300px;background-color:#E1E1E1;}
+.drag_block{border-radius:2px;-webkit-border-radius:2px;-ms-border-radius:2px;-moz-border-radius:-webkit-box-shadow: 1px 1px 84px -4px #808080;box-shadow: 1px 1px 84px -4px #808080;-moz-box-shadow: 1px 1px 84px -4px #808080;-ms-box-shadow: 1px 1px 84px -4px #808080;display:none;position: absolute;left:0;width:300px;height:300px;background-color:#E1E1E1;}
 .triangle{top:-10px;left:14px;z-index:9;position:absolute;width:0;height:0;border-bottom:10px solid #E1E1E1;border-left:5px solid transparent;border-right:5px solid transparent;}
-.drag_area{z-index:0;height:200px;width:200px;border:2px dashed #323232;margin:50px auto;}
-.login-name{vertical-align: middle;}
+.drag_area{position:relative;z-index:0;height:200px;width:200px;border:2px dashed #323232;margin:50px auto;}
+.login-name{vertical-align: middle;font-family:pompadur;padding:10px 0;display:block;}
+.upload_ava{position: absolute;top:0;left:0;z-index:-1;}
