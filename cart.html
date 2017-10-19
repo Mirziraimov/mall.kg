@@ -46,7 +46,7 @@
 						<input type="submit" value=" " name="panel-search"/>
 					</form>
 				</div>
-				
+				<div class="clear"></div>
 			</div>
 			<div class="leftside">
 				<div class="menu">
@@ -101,27 +101,56 @@
 				<div class="order_status">
 					<span class="title">Статус заказа: </span><span class="state_no_active">Не подтвержден</span><span class="state_active">Подтвержден</span>
 				</div>
-				<div class="table_date">
+				<div class="table_data">
 				<table>
-					<tr>
-						<th class="table_head" width="60">№</th>
-						<th class="table_head" width="200">Изображение</th>
-						<th class="table_head" width="200">Название</th>
-						<th class="table_head" width="200">Размер</th>
-						<th class="table_head" width="200">Цена</th>
-						<th class="table_head" width="200">Количество</th>
-						<th class="table_head" width="200">Итог</th>
-					</tr>
+				  <thead>
+				    <tr>
+					    <th class="table_head">№</th>
+						<th class="table_head">Изображение</th>
+						<th class="table_head">Название</th>
+						<th class="table_head">Размер</th>
+						<th class="table_head">Цена</th>
+						<th class="table_head">Количество</th>
+				    </tr>
+				  </thead>
+				  <tbody>
 					<tr class="order_goods">
-						<td width="60">1</td>
-						<td><img src="<?=URL;?>" width="110" height="130"/></td>
-						<td>Макасины</td>
-						<td>Размер не был выбран!</td>
-						<td>3800</td>
-						<td>1</td>
-						<td>3800</td>
+						<td data-label="№">1</td>
+						<td data-label="Изображение"><img src="<?=URL;?>" width="110" height="130"/></td>
+						<td data-label="Название">Макасины</td>
+						<td data-label="Размер">Размер не был выбран!</td>
+						<td data-label="Цена">3800</td>
+						<td data-label="Количество">1</td>
 					</tr>
-				
+				  </tbody>
+				</table>
+				</div>
+				<div class="all_price">
+					Общая сумма: 3800
+				</div>
+				<div class="type_of_delivery">
+					Способ доставки: Курьером
+				</div>
+				<div class="table_data">
+					<table>
+				  <thead>
+				    <tr>
+					    <th class="table_head">ФИО</th>
+						<th class="table_head">Email</th>
+						<th class="table_head">Телефон</th>
+						<th class="table_head">Адрес</th>
+						<th class="table_head">Примечание</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+					<tr class="order_goods">
+						<td data-label="ФИО">Иванов Иван Иванович</td>
+						<td data-label="Email">ivanov@mail.ru</td>
+						<td data-label="Телефон">8 950 100 12 34</td>
+						<td data-label="Адрес">Пример: г. Москва, ул Интузиастов д 18, кв 58</td>
+						<td data-label="Примечание"></td>
+					</tr>
+				  </tbody>
 				</table>
 				</div>
 			</div>
