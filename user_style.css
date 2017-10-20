@@ -47,13 +47,23 @@ table th {text-transform: uppercase;font-size: 14px;letter-spacing: 1px;}
 .state_active{color:#1AA776;font-family:verdana;font-style:italic;}
 .all_price, .type_of_delivery,.time_order{font-family:pompadur;color:red;text-indent:15px;}
 .clear{clear:both;}
+.good{margin-top:8px;width:226px;box-sizing:border-box;border:1px solid #580204;position:relative;z-index:0;margin-right:20px;background-color:#fff; display: inline-block;}
+.good a {color: #2f2f2f;font-family: verdana;text-decoration: none;}
+.title_good {text-align: center;}
+.brand_title {font-family: PoiretOne-Regular;font-weight: bold;color: red;padding: 3px;font-size: 16px;text-align: center;background: #eee;}
+.price { width: 100%;border-top: 1px solid #eee;border-bottom: 1px solid #eee;box-sizing: border-box;overflow: hidden;float: left;text-align: center;font-family: Josefin Sans, sans-serif;color: #fff;background: #580204;}
+.button_click {width: 99%;box-sizing: border-box;overflow: hidden;display: flex;padding: 3px;}
+.to_the_basket {font-size: 14px;width: 90%;padding: 6px 8px;background-color: red;text-align: center;border-radius: 4px;color: #fff;cursor: pointer;font-family: Pompadur;}
+.to_the_basket:first-child{margin-right: 6px;background-color:#00C097;}
+.user_content{display: flex; justify-content: center;flex-flow: row wrap;overflow:hidden;} 
 @media screen and (max-width:650px){
+	.good{margin:0;padding: 0;margin-top: 8px;}
 	.header-section form{width:80%;margin:0 auto;}
 	input[name="user_search"]{width:80%;}
 	.header-section{width:100%;}
 	.header{height:auto;padding:5px;}
 	.content{width:100%;height: auto;padding-bottom:60px;}
-	.leftside{position:fixed;bottom:0;margin:0;width:100%;height:54px;border-top:1px solid #696969;box-sizing:border-box;float:none;box-shadow: 0px -5px 72px -24px #000000;}
+	.leftside{position:fixed;bottom:0;margin:0;width:100%;height:54px;border-top:1px solid #696969;z-index:9;box-sizing:border-box;float:none;box-shadow: 0px -5px 72px -24px #000000;}
 	.menu, .list_menu{width:100%;display:flex;justify-content: space-between;}
 	.list_menu li{float:left;padding:12px;}
 	.rightside{width:100%;float:0;margin: 0;padding:0;box-sizing: border-box;border:0;}

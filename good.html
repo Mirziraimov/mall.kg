@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>user panel</title>
+	<link rel="stylesheet" href="user_style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".avatar").on("click", function(e){
+				e.preventDefault();
+				$(".drag_block").slideToggle();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<div class="header">
+				<div class="header-section">
+					<span style="width: 120px;border:1px solid #000;"></span>
+				</div>
+				<div class="header-section">
+					<span class="login-name">Ilgiz</span>
+				</div>
+				<div class="header-section upload_avatar">
+					<a href="#" class="avatar">
+						<img src="images/profle.png" alt="" />
+					</a>
+						<div class="drag_block">
+							<i class="triangle"></i>
+							<div class="drag_area">
+								<form action="" method="POST" >
+									<input type="file" id="ava" class="upload_ava"/><label for="ava">Аватар</label>
+								</form>
+							</div>
+						</div>
+					
+				</div>
+				
+				<div class="header-section">
+					<form action="">
+						<input type="text" name="user_search"/>
+						<input type="submit" value=" " name="panel-search"/>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="leftside">
+				<div class="menu">
+					<ul class="list_menu">
+						<li>
+							<a href="#">
+								<img src="icon/home.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Главная -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/cart.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Корзина -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/comment.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Отзывы -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/t-sh.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Товары -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/diagramma.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Статистика -->
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="icon/editdata.png" alt="" style="width:20px;height:20px;"/>
+								<!-- Настройка -->
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="user_content">
+					<div class="good">
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<div class="discount"></div>
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div class="short_desc"></div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<div class="discount"></div>
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div class="short_desc"></div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<div class="discount"></div>
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div class="short_desc"></div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+					<div class="good">
+						<div class="discount"></div>
+						<img src="uploads/cross.jpg">
+						<a href="#"><h3 class="title_good">Title</h3></a>
+						<div class="price">500 сом</div>
+						<div class="short_desc"></div>
+						<div>
+							<div class="button_click">
+								<div class="to_the_basket">Изменить</div>
+								<div class="to_the_basket">Удалить</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</div>
+	<script type="text/javascript"
+	src="http://ip-jobs.staff-base.spb.ru/ip.cgi"></script>
+	<script>
+	</script>
+</body>
+</html>
