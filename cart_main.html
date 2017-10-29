@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="user_style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/script.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".avatar").on("click", function(e){
@@ -39,6 +41,7 @@
 						</div>
 					
 				</div>
+				
 				<div class="header-section">
 					<form action="">
 						<input type="text" name="user_search"/>
@@ -47,7 +50,6 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			
 			<div class="leftside">
 				<div class="menu">
 					<ul class="list_menu">
@@ -91,52 +93,44 @@
 				</div>
 			</div>
 			<div class="rightside">
-				<div class="settings-block">
-					<form action="" class="setting_form">
-						<div class="form_section_block">
-							<label>Логин</label>
-							<input type="text" name="setting_login"/>
-						</div>
-						<div class="form_section_block">
-							<label>Email</label>
-							<input type="text" name="setting_Email"/>
-						</div>
-						<div class="form_section_block">
-							<label>Изменить пароль:</label>
-							<input type="text" name="setting_password"/>
-						</div>
-						<div class="form_section_block">
-							<label>Повторите пароль:</label>
-							<input type="text" name="setting_cpassword"/>
-						</div>
-						<div class="form_section_block">
-							<label>Телефон:</label>
-							<input type="text" name="setting_phone"/>
-						</div>
-						<div class="form_section_block">
-							<label>Имя:</label>
-							<input type="text" name="setting_name"/>
-						</div>
-						<div class="form_section_block">
-							<label>Фамилия:</label>
-							<input type="text" name="setting_lastname"/>
-						</div>
-						<div class="form_section_block">
-							<label>Назване магазина::</label>
-							<input type="text" name="setting_shopname"/>
-						</div>
-						<div class="view_brand_img">
-							<img src="" alt="">
-						</div>
-						<div class="change_brand_img">
-							
-						</div>
-						<input type="submit" name="update_data" class="button_update"/>
-					</form>
+				<div class="title_section">Корзина заказов</div>
+				<div class="data_orders">
+					<div class="all-orders">Всего заказов (<span>1</span>)</div>
+					<div class="all-orders">ОБРАБОТАННЫХ (<span>1</span>)</div>
+					<div class="all-orders">НЕ ОБРАБОТАННЫХ (<span id="initiolized">1</span>)</div>
+				</div>
+				<div class="order-list">
+					<div class="order-data">
+						<p>Время заказа: 2017-10-29 19:42:21</p>
+						<p>Заказ № 1 <span class="nothandle">Не обработан</span> <span class="handle">Обработан</span></p>
+					</div>
+					<div class="readmore">
+						<a href="http://mall.kg/vieworder/18">Подробнее...</a>
+					</div>
+				</div>
+				<div class="order-list">
+					<div class="order-data">
+						<p>Время заказа: 2017-10-29 19:42:21</p>
+						<p>Заказ № 1 <span class="nothandle">Не обработан</span> <span class="handle">Обработан</span></p>
+					</div>
+					<div class="readmore">
+						<a href="http://mall.kg/vieworder/18">Подробнее...</a>
+					</div>
+				</div>
+				<div class="order-list">
+					<div class="order-data">
+						<p>Время заказа: 2017-10-29 19:42:21</p>
+						<p>Заказ № 1 <span class="nothandle">Не обработан</span> <span class="handle">Обработан</span></p>
+					</div>
+					<div class="readmore">
+						<a href="http://mall.kg/vieworder/18">Подробнее...</a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer"></div>
+		<div class="footer">
+			
+		</div>
 	</div>
 	<script type="text/javascript"
 	src="http://ip-jobs.staff-base.spb.ru/ip.cgi"></script>

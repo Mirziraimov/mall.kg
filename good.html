@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="user_style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="<?=URL;?>js/script_user.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".avatar").on("click", function(e){
@@ -91,6 +93,46 @@
 				</div>
 			</div>
 			<div class="rightside">
+				<ul class="container_user_category">
+				  <li class="user_menu">      
+				      <ul>
+					    <li class="button"><a href="#" class="box1">ГЛАВНАЯ</a></li>
+				        <li class="dropdown">
+				            <ul>
+				                <li><a href="#">Пункт1</a></li>
+				                <li><a href="#">Пункт2</a></li>
+				                <li><a href="#">Пункт3</a></li>
+				                <li><a href="#">Пункт4</a></li>
+				            </ul>
+						</li>
+				      </ul>          
+				  </li>      
+				  <li class="user_menu">      
+				      <ul>
+					    <li class="button"><a href="#" class="box2">ФОТО</a></li>          	
+				        <li class="dropdown">
+				            <ul>
+				                <li><a href="#">Пункт1</a></li>
+				                <li><a href="#">Пункт2</a></li>
+				                <li><a href="#">Пункт3</a></li>
+				            </ul>
+						</li>
+				      </ul>          
+				  </li>      
+				  <li class="user_menu">      
+				      <ul>
+					    <li class="button"><a href="#" class="box3">ВИДЕО</a></li>
+				        <li class="dropdown">
+				            <ul>
+				                <li><a href="#">Пункт1</a></li>
+				                <li><a href="#">Пункт2</a></li>
+				                <li><a href="#">Пункт3</a></li>
+				                <li><a href="#">Пункт4</a></li>
+				            </ul>
+						</li>
+				      </ul>          
+				  </li>   
+				</ul>
 				<div class="user_content">
 					<div class="good">
 						<img src="uploads/cross.jpg">
