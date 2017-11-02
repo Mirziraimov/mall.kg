@@ -19,7 +19,9 @@ input[name="user_search"]{width:200px;font-family:Pompadur;float: left;padding: 
 .upload_avatar{position:relative; display: block;}
 .drag_block{border-radius:2px;-webkit-border-radius:2px;-ms-border-radius:2px;-moz-border-radius:-webkit-box-shadow: 1px 1px 84px -4px #808080;box-shadow: 1px 1px 84px -4px #808080;-moz-box-shadow: 1px 1px 84px -4px #808080;-ms-box-shadow: 1px 1px 84px -4px #808080;display:none;position: absolute;left:0;width:300px;height:300px;background-color:#E1E1E1;}
 .triangle{top:-10px;left:14px;z-index:9;position:absolute;width:0;height:0;border-bottom:10px solid #E1E1E1;border-left:5px solid transparent;border-right:5px solid transparent;}
+
 .drag_area{position:relative;z-index:0;height:200px;width:200px;border:2px dashed #323232;margin:50px auto;}
+
 .login-name{vertical-align: middle;font-family:pompadur;padding:10px 0;display:block;}
 .upload_ava{position: absolute;top:0;left:0;z-index:-1;}
 .order{margin: 10px 0 20px 12px;}
@@ -83,6 +85,11 @@ li.button a span{height:44px;position:absolute;right:0;top:0;width:4px;display:b
 .choice .deny{background: #C01341;}
 .comment_data{width: 97%;background-color: #ECECEC;padding: 4px;overflow: hidden;}
 .all_comments{font-family: pompadur;color:#2A323B;font-size: 14px;}
+
+.block_social_icons{border:1px solid #000;display: inline-block;float:left;}
+.s_icons{list-style: none;}
+.s_icons li{float:left;}
+.s_icons li img{}
 @media screen and (max-width:650px){
 	.order-data{width:70%;}
 	li.user_menu{width:100%;border-bottom:1px solid #696969;box-sizing:border-box;}

@@ -14,6 +14,45 @@
 			});
 		});
 	</script>
+	<style>
+		.drag_area .upload_form{
+			height:100%;
+			position: relative;
+		}
+		.upload_label{
+			text-align: center;
+			display: block;
+			overflow: hidden;
+			margin: 73px 34px;
+		}
+		.button_upload{
+			height: 26px;
+		    font-family: Pompadur;
+		    cursor: pointer;
+		    box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    width: 8em;
+		    text-align: center;
+		    color: #fff;
+		    background-color: #23BBC9;
+		    border: 0;
+		    border-radius: 6px;
+		    display: inline-block;
+		    margin:0 auto;
+		}
+		#gen_file{
+			background-color: transparent;
+		    color: #999;
+		    font-size:13px;
+		    font-family: arial;
+		    display: block;
+		}
+		#upload{
+			position: absolute;
+			top:0;
+			visibility: hidden;
+		}
+	</style>
 </head>
 <body>
 	<div class="wrapper">
@@ -29,15 +68,28 @@
 					<a href="#" class="avatar">
 						<img src="images/profle.png" alt="" />
 					</a>
-						<div class="drag_block">
-							<i class="triangle"></i>
-							<div class="drag_area">
-								<form action="" method="POST" >
-									<input type="file" id="ava" class="upload_ava"/><label for="ava">Аватар</label>
-								</form>
-							</div>
+					<div class="drag_block">
+						<i class="triangle"></i>
+						<div class="drag_area">
+							<form action="" class="upload_form" method="POST" >
+								<label class="upload_label">
+							        <mark id="gen_file">Аватар</mark>
+							        <span class="button_upload">Выбрать</span>
+							        <input type="file" id="upload" name="img_brand"/>
+							   	</label>
+							</form>
 						</div>
+					</div>
 					
+				</div>
+				<div class="block_social_icons">
+					<ul class="s_icons">
+						<li><a href="#"><img src="icon/fbicon.png" /></a></li>
+						<li><a href="#"><img src="icon/twicon.png" /></a></li>
+						<li><a href="#"><img src="icon/vkicon.png" /></a></li>
+						<li><a href="#"><img src="icon/insticon.png" /></a></li>
+						<li><a href="#"><img src="icon/okicon.png" /></a></li>
+					</ul>
 				</div>
 				<div class="header-section">
 					<form action="">
