@@ -135,6 +135,9 @@ li.button a span{height:44px;position:absolute;right:0;top:0;width:4px;display:b
 .s_icons{list-style: none;}
 .s_icons li{float:left;}
 .s_icons li img{}
+
+.title_{font-size:19px;font-family: pompadur;color:red;text-align:center;}
+.description_good{font-size:16px;font-family: pompadur;color:red;background-color: #EAEAEA;margin-top:8px;padding:4px 3px;}
 @media screen and (max-width:650px){
 	.order-data{width:70%;}
 	li.user_menu{width:100%;border-bottom:1px solid #696969;box-sizing:border-box;}
