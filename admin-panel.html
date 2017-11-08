@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="user_style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script> 
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".avatar").on("click", function(e){
@@ -52,6 +53,7 @@
 			top:0;
 			visibility: hidden;
 		}
+
 	</style>
 </head>
 <body>
@@ -144,44 +146,69 @@
 			</div>
 			<div class="rightside">
 				<h3 class="title_">Добавить товар</h3>
-				<form action="" method="POST">
-					<p><label for="title_good">Название товара:</label><input type="text" id="title_good" name="title_good"/></p>
-					<p><label for="price_good">Цена:</label><input type="text" id="price_good" name="price_good"/></p>
-					<p><label for="meta_key_word">Ключевое слово:</label><input type="text" id="meta_key_word" name="meta_key_word"/></p>
-					<p><label for="meta_desc_word">Краткое описание:</label><textarea name="meta_desc_word" id="meta_desc_word"></textarea></p>
-					<p>
-						<label for="category_g">Категрия:</label>
-						<select name="set-category" id="category_g" size="10">
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-							<option value="-">пункт 1</option>
-						</select>
-					</p>
-					<p> 
-						<P class="label">Основная картинка:</p>
-						<label>
-							<span class="button_main_img_upload">...</span>
-							<mark id="get_brand_title">Лого бренда</mark>
-							<input id="change_brand" name="img_brand" type="file">
-						</label>
-					</p>
-					<p>
-						<h3 class="description_good">Описание товара</h3>
-						<textarea name="description_good"></textarea>
-					</p>
-				</form>
+				<div class="user_content">
+					<form action="" class="form_to_add" method="POST">
+						<p><label for="title_good">Название товара:</label><input class="add_field" type="text" id="title_good" name="title_good"/></p>
+						<p><label for="price_good">Цена:</label><input class="add_field" type="text" id="price_good" name="price_good"/></p>
+						<p><label for="meta_key_word">Ключевые слова:</label><input class="add_field" type="text" id="meta_key_word" name="meta_key_word"/></p>
+						<p><label for="meta_desc_word" class="meta_desc_word">Краткое описание:</label><textarea class="add_field" name="meta_desc_word" id="meta_desc_word"></textarea></p>
+						<p>
+							<label for="category_g" class="category_g">Категрия:</label>
+							<select name="set-category" id="category_g" size="10">
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+								<option value="-">пункт 1</option>
+							</select>
+						</p>
+						<p class="main-imag-block"> 
+							<label>
+								<span class="button_main_img_upload">Выбрать картинку</span>
+								<mark id="get_brand_title">Основная картинка</mark>
+								<input id="change_brand" name="img_brand" type="file">
+							</label>
+						</p>
+						<p>
+							<h3 class="description_good">Описание товара</h3>
+							<textarea name="description_good" id="editor"></textarea>
+							<script type="text/javascript">
+								CKEDITOR.replace("editor");
+							</script>
+						</p>
+						<p>
+							<h3 class="settings_good">Настройки товара</h3>
+							<ul class="chkbox">
+								<li><input type="checkbox" name="chk_visible" id="chk_visible" checked=""><label for="chk_visible">Показывать товар</label></li>
+								<li><input type="checkbox" name="chk_new" id="chk_new"><label for="chk_new">Новый товар</label></li>
+								<li><input type="checkbox" name="chk_leader" id="chk_leader"><label for="chk_leader">Популярный товар</label></li>
+								<li><input type="checkbox" name="chk_sale" id="chk_sale"><label for="chk_sale">Товар со скидкой</label></li>
+							</ul>
+						</p>
+						<div class="gallery-wrapper">
+							<p class="gallery-images-block"> 
+								<label>
+									<span class="button_main_img_upload">Выбрать картинку</span>
+									<mark id="get_brand_title">Галлерея картинок</mark>
+									<input id="change_brand" name="img_brand" type="file">
+								</label>
+								<button class="button-remove">Удалить</button>
+							</p>
+							<button class="button-add">Добавить</button>
+						</div>
+					</form>
+					<div class="clrear"></div>
+				</div>
 			</div>
 		</div>
 		<div class="footer"></div>
